@@ -71,9 +71,29 @@ flowchart LR
 
 These are the capabilities I call out when describing **what ships today**:
 
-1. **Authentication with invite code** — Sign-up requires a valid **invite code** (validated server-side against a configured hash), so access can be restricted without building a full custom identity provider.
-2. **Reporting content moderation issues** — Users can file **structured reports** (“Report an Issue”) with violation/content categorization and optional evidence; operators receive actionable email threads.
-3. **Creating and editing a single- or double-sided design card** — Authoring flow supports **one or two sides**, preview, and integration with **AI-assisted imagery** where the product uses it.
-4. **Viewing a design** — Read-only **view** experience aligned with create/edit preview patterns (including flip between sides for double-sided designs).
+1. **Authentication, access, and onboarding**
+- **Invite-code sign-up** — New accounts submit an **invite code** at confirmation time; the backend checks it against a **configured hash** so you can run a closed or phased beta.
+- **Cognito-backed sessions** — Sign-in, protected dashboard routes, and token refresh handled through **AWS Amplify Auth** with shared client utilities for API calls.
+- **Marketing / legal shell** — **Landing page**, **Terms**, **Privacy**, and **Help** routes for a complete public surface around the app.
+2. **Designs**
+- **Single- or double-sided design cards** — Create **one or two sides**, with a **flip preview** consistent across create, edit, and view.
+- **Multiple image sources** — **Template-backed** sides, **manual file upload** (presigned POST to S3), and **AI-generated** imagery wired through backend providers (with moderation-aware error handling).
+- **Design library** — Paginated **list of your designs** with **search**, **visibility** (public/private), and **dimension** filters.
+- **Design detail (read-only)** — Dedicated **view** page with the same visual language as the editor; supports opening **another user’s public design** when the route includes owner context.
+- **Public vs private** — Toggle **visibility** on a design so it can appear in discovery surfaces when public.
+- **Optional QR on text cards** — For text-oriented layouts, **QR codes** can be enabled so cards combine copy + scannable content (portrait/landscape preview layouts).
+- **Export** — **Download** designs as **PNG** or **PDF** (including double-sided PDF layout where applicable).
+3. **Discovery and profiles**
+- **Home feed** — Browse **public designs** from the community with **filters** and **cursor-based pagination**, with navigation that preserves “return to page” context when drilling into a design.
+- **User profiles** — **Profile pages by user id** to browse that person’s public designs (with pagination).
+- **Public profile preview** — Signed-in users can **preview how their own public profile** appears to others.
+4. **Collections**
+- **Collections list and detail** — Organize designs into **collections**; open a collection to see its members (with pagination and deep links).
+- **Public / private collections** — Control whether a collection is exposed like public designs.
+- **Collection cover imagery** — **Cover image** support with the same **presigned upload** pattern used for design assets.
+5. **AI usage and billing**
+- **AI credits** — Purchase **credit packages** through **Stripe Embedded Checkout** (in-app, no full redirect to Stripe’s hosted page).
+- **Payment history** — **Dashboard page** for past **AI-credit** purchases tied to the account.
+- **Saved payment methods** — Returning checkout uses a **stored Stripe customer** mapping when valid (with backend fallback if Stripe data was removed).
 
 *Last updated: March 2026.*
