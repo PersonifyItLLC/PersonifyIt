@@ -10,7 +10,6 @@ The website can be viewed here: https://personifyit.com.
 
 - **Experiment with prompt engineering and AI APIs** — I wanted to explore how I can use prompt engineering to build a real product application. I also wanted to explore AI APIs and see how I'm able to build a product with them. I decided to go with Image Generation APIs because I love seeing the images that are created with each prompt.
 - **Experience with LLC formation** - I always wanted to know how to start a LLC. I wanted to take a leap of faith and learn more about entrepreneurship, business models, user engagement, and how to create products for myself and for others to use. Thanks to PersonifyIt, I had the opportunity to know what it was like to launch a small business from the ground zero and to wear multiple hats.
-- **Update as of 06/24/2026** - I'm planning on disbanding the LLC and to have PersonifyIt as a personal side project.
 
 ## 3. Technical highlights
 
